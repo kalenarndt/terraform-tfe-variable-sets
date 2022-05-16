@@ -15,7 +15,7 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
-      - uses: ncipollo/release-action@v1
+      - uses: ncipollo/release-action@v1.10.0
         with:
           generateReleaseNotes: true
           name: 'v${{ github.ref_name }}'
