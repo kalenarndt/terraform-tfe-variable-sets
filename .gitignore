@@ -57,10 +57,8 @@ output-*/
 
 ### Licenses ###
 *.license
+*.auto.tfvars
 
 ### Local Secrets ##
 secrets.auto.tfvars
 vault_kv_secrets.yaml
-
-### CDW TF Files ###
-**/tige-tf/*

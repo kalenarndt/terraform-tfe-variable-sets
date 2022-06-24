@@ -11,7 +11,9 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_tfe"></a> [tfe](#provider\_tfe) | 0.31.0 |
+| <a name="provider_null"></a> [null](#provider\_null) | 3.1.1 |
+| <a name="provider_tfe"></a> [tfe](#provider\_tfe) | 0.32.1 |
+| <a name="provider_time"></a> [time](#provider\_time) | 0.7.2 |
 
 ## Modules
 
@@ -21,8 +23,10 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [null_resource.wait](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
 | [tfe_variable.var](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable) | resource |
 | [tfe_variable_set.set](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable_set) | resource |
+| [time_sleep.create](https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/sleep) | resource |
 | [tfe_organization.org](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/data-sources/organization) | data source |
 | [tfe_variable_set.set](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/data-sources/variable_set) | data source |
 | [tfe_workspace_ids.ws](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/data-sources/workspace_ids) | data source |
@@ -31,6 +35,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_create_duration"></a> [create\_duration](#input\_create\_duration) | (Optional) - Optional creation duration wait time for the module to execute. Helps eliminate the need for explicit dependecies when creating variable sets and workspaces in the same run | `string` | `"0s"` | no |
 | <a name="input_create_variable_set"></a> [create\_variable\_set](#input\_create\_variable\_set) | (Optional) Conditional that will create a variable set for the variables that are being created. Defaults to true | `bool` | `true` | no |
 | <a name="input_organization"></a> [organization](#input\_organization) | (Required) Name of the TFC Organization where the workspaces reside | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | (Optional) List of tags that will be used when determining the workspace IDs. Required if create\_variable\_set is set to true. | `list(string)` | `[]` | no |
