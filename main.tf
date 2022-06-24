@@ -1,11 +1,14 @@
-
-
 resource "time_sleep" "create" {
   create_duration = var.create_duration
+  # This is only here because of a race condition with using this module
+  # within a stemcell / control workspace setup in TFC
+  # This executes and waits for the workspaces to be present (if specified)
+  # Then the data lookup takes place to find the workspace IDs.
 }
 
 data "tfe_organization" "org" {
-  name = var.organization
+  name       = var.organization
+  depends_on = [time_sleep.create]
 }
 
 data "tfe_workspace_ids" "ws" {
