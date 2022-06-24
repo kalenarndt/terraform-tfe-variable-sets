@@ -17,6 +17,7 @@ data "tfe_workspace_ids" "ws" {
   count        = var.create_variable_set ? 1 : 0
   tag_names    = var.tags
   organization = data.tfe_organization.org.name
+  depends_on   = [time_sleep.create]
 }
 
 resource "tfe_variable" "var" {
