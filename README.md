@@ -11,7 +11,6 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_null"></a> [null](#provider\_null) | 3.1.1 |
 | <a name="provider_tfe"></a> [tfe](#provider\_tfe) | 0.32.1 |
 | <a name="provider_time"></a> [time](#provider\_time) | 0.7.2 |
 
@@ -23,7 +22,6 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [null_resource.wait](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
 | [tfe_variable.var](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable) | resource |
 | [tfe_variable_set.set](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable_set) | resource |
 | [time_sleep.create](https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/sleep) | resource |
