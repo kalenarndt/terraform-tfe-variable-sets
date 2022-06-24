@@ -9,6 +9,12 @@ variable "variables" {
   }))
 }
 
+variable "create_duration" {
+  description = "(Optional) - Optional creation duration wait time for the module to execute. Helps eliminate the need for explicit dependecies when creating variable sets and workspaces in the same run"
+  type        = string
+  default     = ""
+}
+
 variable "organization" {
   description = "(Required) Name of the TFC Organization where the workspaces reside"
   type        = string
@@ -36,4 +42,3 @@ variable "tags" {
   description = "(Optional) List of tags that will be used when determining the workspace IDs. Required if create_variable_set is set to true."
   default     = []
 }
-

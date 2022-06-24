@@ -57,6 +57,7 @@ output-*/
 
 ### Licenses ###
 *.license
+*.auto.tfvars
 
 ### Local Secrets ##
 secrets.auto.tfvars
