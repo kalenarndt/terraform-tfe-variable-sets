@@ -4,7 +4,7 @@ variable "variables" {
     description = string
     category    = string
     sensitive   = optional(bool)
-    hcl         = optional(bool)
+    hcl         = bool
     value       = any
   }))
 }

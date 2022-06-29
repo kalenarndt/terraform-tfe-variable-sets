@@ -39,7 +39,7 @@ No modules.
 | <a name="input_tags"></a> [tags](#input\_tags) | (Optional) List of tags that will be used when determining the workspace IDs. Required if create\_variable\_set is set to true. | `list(string)` | `[]` | no |
 | <a name="input_variable_set_description"></a> [variable\_set\_description](#input\_variable\_set\_description) | (Optional) Description that will be tied to the variable set if one is being created. | `string` | `"Variable Set created via Terraform"` | no |
 | <a name="input_variable_set_name"></a> [variable\_set\_name](#input\_variable\_set\_name) | (Required) Name of the variable set that will be created or used (if create\_variable\_set is set to false). | `string` | n/a | yes |
-| <a name="input_variables"></a> [variables](#input\_variables) | n/a | <pre>map(object({<br>    category    = string<br>    description = string<br>    category    = string<br>    sensitive   = optional(bool)<br>    hcl         = optional(bool)<br>    value       = any<br>  }))</pre> | n/a | yes |
+| <a name="input_variables"></a> [variables](#input\_variables) | n/a | <pre>map(object({<br>    category    = string<br>    description = string<br>    category    = string<br>    sensitive   = optional(bool)<br>    hcl         = bool<br>    value       = any<br>  }))</pre> | n/a | yes |
 
 ## Outputs
 
