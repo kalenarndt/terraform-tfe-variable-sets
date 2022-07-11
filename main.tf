@@ -30,16 +30,11 @@ resource "tfe_variable" "var" {
 }
 
 resource "tfe_variable_set" "set" {
-  count        = var.create_variable_set ? 1 : 0
-  name         = var.variable_set_name
-  description  = var.variable_set_description
-  organization = data.tfe_organization.org.name
-}
-
-resource "tfe_workspace_variable_set" "set" {
-  for_each        = data.tfe_workspace_ids.ws[0].ids
-  variable_set_id = var.create_variable_set ? tfe_variable_set.set[0].id : data.tfe_variable_set.set[0].id
-  workspace_id    = each.value
+  count         = var.create_variable_set ? 1 : 0
+  name          = var.variable_set_name
+  description   = var.variable_set_description
+  organization  = data.tfe_organization.org.name
+  workspace_ids = values(data.tfe_workspace_ids.ws[0].ids)
 }
 
 data "tfe_variable_set" "set" {
