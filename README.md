@@ -5,13 +5,13 @@
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_tfe"></a> [tfe](#requirement\_tfe) | ~>0.33.0 |
+| <a name="requirement_tfe"></a> [tfe](#requirement\_tfe) | >=0.30.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_tfe"></a> [tfe](#provider\_tfe) | 0.33.0 |
+| <a name="provider_tfe"></a> [tfe](#provider\_tfe) | 0.32.1 |
 | <a name="provider_time"></a> [time](#provider\_time) | 0.7.2 |
 
 ## Modules
@@ -24,7 +24,6 @@ No modules.
 |------|------|
 | [tfe_variable.var](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable) | resource |
 | [tfe_variable_set.set](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable_set) | resource |
-| [tfe_workspace_variable_set.set](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/workspace_variable_set) | resource |
 | [time_sleep.create](https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/sleep) | resource |
 | [tfe_organization.org](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/data-sources/organization) | data source |
 | [tfe_variable_set.set](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/data-sources/variable_set) | data source |
