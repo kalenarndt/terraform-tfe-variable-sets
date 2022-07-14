@@ -13,7 +13,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_variable-sets"></a> [variable-sets](#module\_variable-sets) | kalenarndt/variable-sets/tfe | >=0.0.3 |
+| <a name="module_variable-sets"></a> [variable-sets](#module\_variable-sets) | ../../ | n/a |
 
 ## Resources
 

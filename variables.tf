@@ -4,7 +4,7 @@ variable "variables" {
     description = string
     category    = string
     sensitive   = optional(bool)
-    hcl         = optional(bool)
+    hcl         = bool
     value       = any
   }))
 }
@@ -41,4 +41,10 @@ variable "tags" {
   type        = list(string)
   description = "(Optional) List of tags that will be used when determining the workspace IDs. Required if create_variable_set is set to true."
   default     = []
+}
+
+variable "global" {
+  type        = bool
+  description = "(Optional) Boolean that designates whether or not the variable set applies to all workspaces in the Organization."
+  default     = false
 }
