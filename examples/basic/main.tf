@@ -3,7 +3,7 @@ module "variable-sets" {
   organization        = "hc-gcve"
   create_variable_set = true
   variable_set_name   = "my-set"
-  tags                = ["aws"]
+  tags                = ["nsx"]
   variables = {
     AWS_REGION = {
       category    = "env"
@@ -28,3 +28,20 @@ module "variable-sets" {
     },
   }
 }
+
+# module "variable-sets-update" {
+#   source              = "../../"
+#   organization        = "hc-gcve"
+#   create_variable_set = false
+#   variable_set_name   = "my-set"
+#   tags                = ["nsx"]
+#   variables = {
+#     TEST_UPDATE = {
+#       category    = "env"
+#       description = "(Required) AWS Region where the resources will be instantiated."
+#       sensitive   = false
+#       hcl         = false
+#       value       = "ap-southeast-1"
+#     }
+#   }
+# }
