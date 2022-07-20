@@ -1,21 +1,13 @@
-resource "time_sleep" "create" {
-  create_duration = var.create_duration
-  # This is only here because of a race condition with using this module
-  # within a stemcell / control workspace setup in TFC
-  # This executes and waits for the workspaces to be present (if specified)
-  # Then the data lookup takes place to find the workspace IDs.
-}
+
 
 data "tfe_organization" "org" {
-  name       = var.organization
-  depends_on = [time_sleep.create]
+  name = var.organization
 }
 
 data "tfe_workspace_ids" "ws" {
   count        = var.create_variable_set ? 1 : 0
   tag_names    = var.tags
   organization = data.tfe_organization.org.name
-  depends_on   = [time_sleep.create]
 }
 
 resource "tfe_variable" "var" {
@@ -30,11 +22,17 @@ resource "tfe_variable" "var" {
 }
 
 resource "tfe_variable_set" "set" {
-  count         = var.create_variable_set ? 1 : 0
-  name          = var.variable_set_name
-  description   = var.variable_set_description
-  organization  = data.tfe_organization.org.name
-  workspace_ids = values(data.tfe_workspace_ids.ws[0].ids)
+  count        = var.create_variable_set ? 1 : 0
+  name         = var.variable_set_name
+  global       = var.global
+  description  = var.variable_set_description
+  organization = data.tfe_organization.org.name
+}
+
+resource "tfe_workspace_variable_set" "set" {
+  for_each        = { for k, v in try(data.tfe_workspace_ids.ws[0].ids, []) : k => v if var.create_variable_set == true } # using this for now but needs to also support var.create_variable_set
+  variable_set_id = tfe_variable_set.set[0].id
+  workspace_id    = each.value
 }
 
 data "tfe_variable_set" "set" {

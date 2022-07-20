@@ -1,10 +1,9 @@
 module "variable-sets" {
-  source              = "kalenarndt/variable-sets/tfe"
-  version             = ">=0.0.3"
-  organization        = "my-org"
+  source              = "../../"
+  organization        = "hc-gcve"
   create_variable_set = true
   variable_set_name   = "my-set"
-  tags                = ["aws"]
+  tags                = ["nsx"]
   variables = {
     AWS_REGION = {
       category    = "env"
@@ -27,5 +26,22 @@ module "variable-sets" {
       hcl         = false
       value       = "8760"
     },
+  }
+}
+
+module "variable-sets-update" {
+  source              = "../../"
+  organization        = "hc-gcve"
+  create_variable_set = false
+  variable_set_name   = "existing-set"
+  tags                = ["var-set"]
+  variables = {
+    ADDED_VAR = {
+      category    = "env"
+      description = "(Required) Never gonna give you up"
+      sensitive   = false
+      hcl         = false
+      value       = "Never gonna let you down"
+    }
   }
 }
