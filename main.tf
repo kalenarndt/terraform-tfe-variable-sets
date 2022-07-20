@@ -30,8 +30,8 @@ resource "tfe_variable_set" "set" {
 }
 
 resource "tfe_workspace_variable_set" "set" {
-  for_each        = data.tfe_workspace_ids.ws[0].ids # using this for now but needs to also support var.create_variable_set
-  variable_set_id = var.create_variable_set ? tfe_variable_set.set[0].id : data.tfe_variable_set.set[0].id
+  for_each        = { for k, v in try(data.tfe_workspace_ids.ws[0].ids, []) : k => v if var.create_variable_set == true } # using this for now but needs to also support var.create_variable_set
+  variable_set_id = tfe_variable_set.set[0].id
   workspace_id    = each.value
 }
 
