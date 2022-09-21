@@ -5,13 +5,14 @@
 
 | Name | Version |
 |------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | <=1.2.9 |
 | <a name="requirement_tfe"></a> [tfe](#requirement\_tfe) | >=0.30.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_tfe"></a> [tfe](#provider\_tfe) | 0.33.0 |
+| <a name="provider_tfe"></a> [tfe](#provider\_tfe) | 0.36.1 |
 
 ## Modules
 
