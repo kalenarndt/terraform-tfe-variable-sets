@@ -13,7 +13,7 @@ data "tfe_workspace_ids" "ws" {
 resource "tfe_variable" "var" {
   for_each        = var.variables
   key             = each.key
-  value           = each.value.hcl ? replace(jsonencode(each.value.value), "/\"(\\w+?)\":/", "$1=") : each.value.value
+  value           = each.value.hcl ? replace(jsonencode(each.value.value), "/\"(\\w+?)\":/", "$1=") : try(tostring(each.value.value), null)
   category        = each.value.category
   hcl             = each.value.hcl
   variable_set_id = var.create_variable_set ? tfe_variable_set.set[0].id : data.tfe_variable_set.set[0].id

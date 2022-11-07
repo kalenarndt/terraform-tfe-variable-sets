@@ -1,8 +1,8 @@
 module "variable-sets" {
   source              = "../../"
-  organization        = "hc-gcve"
+  organization        = "integration-testing"
   create_variable_set = true
-  variable_set_name   = "my-set"
+  variable_set_name   = "my-set2"
   tags                = ["nsx"]
   variables = {
     AWS_REGION = {
@@ -31,9 +31,9 @@ module "variable-sets" {
 
 module "variable-sets-update" {
   source              = "../../"
-  organization        = "hc-gcve"
+  organization        = "integration-testing"
   create_variable_set = false
-  variable_set_name   = "existing-set"
+  variable_set_name   = module.variable-sets.variable_set_name
   tags                = ["var-set"]
   variables = {
     ADDED_VAR = {
@@ -43,5 +43,28 @@ module "variable-sets-update" {
       hcl         = false
       value       = "Never gonna let you down"
     }
+  }
+}
+
+
+module "test" {
+  source              = "../../"
+  organization        = "integration-testing"
+  create_variable_set = true
+  variable_set_name   = "my-set"
+  tags                = ["nsx"]
+  variables = {
+    env_dev = {
+      category    = "terraform"
+      description = "(Required) AWS Region where the resources will be instantiated."
+      sensitive   = false
+      hcl         = true
+      value = {
+        name            = "eks-dev"
+        cidr            = "10.0.0.0/16"
+        private_subnets = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+        public_subnets  = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
+      }
+    },
   }
 }
