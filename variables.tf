@@ -3,7 +3,7 @@ variable "variables" {
     category    = string
     description = string
     category    = string
-    sensitive   = optional(bool)
+    sensitive   = optional(bool, false)
     hcl         = bool
     value       = any
   }))
