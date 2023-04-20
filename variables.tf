@@ -4,9 +4,15 @@ variable "variables" {
     description = string
     category    = string
     sensitive   = optional(bool, false)
-    hcl         = bool
+    hcl         = optional(bool, false)
     value       = any
   }))
+}
+
+variable "project_names" {
+  type        = list(string)
+  description = "List of project names that will have the variable set associated."
+  default     = []
 }
 
 variable "organization" {

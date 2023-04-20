@@ -3,6 +3,7 @@ module "variable-sets" {
   organization        = "integration-testing"
   create_variable_set = true
   variable_set_name   = "my-set2"
+  project_names       = ["Intel", "zts-eks"]
   tags                = ["nsx"]
   variables = {
     AWS_REGION = {
@@ -30,6 +31,9 @@ module "variable-sets" {
 }
 
 module "variable-sets-update" {
+  depends_on = [
+    module.variable-sets
+  ]
   source              = "../../"
   organization        = "integration-testing"
   create_variable_set = false
